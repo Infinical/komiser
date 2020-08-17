@@ -30,16 +30,16 @@
     "core-js": "^2.4.1",
     "gulp": "^4.0.1",
     "gulp-webserver": "^0.9.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.1",
     "jquery-mapael": "^2.2.0",
     "moment": "^2.24.0",
     "ngx-bootstrap": "^2.0.5",
     "ngx-trend": "^3.4.1",
     "raphael": "^2.2.8",
     "rxjs": "^6.6.2",
+    "rxjs-compat": "^6.0.0-rc.0",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1",
-    "rxjs-compat": "^6.0.0-rc.0"
+    "zone.js": "~0.9.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",

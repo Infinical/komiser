@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { TrendModule } from 'ngx-trend';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -149,7 +149,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     PaginationModule.forRoot(),
     BrowserAnimationsModule,
