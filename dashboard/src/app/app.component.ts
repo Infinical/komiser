@@ -5,8 +5,7 @@ import { OvhService } from './ovh.service';
 import { DigitaloceanService } from './digitalocean.service';
 import { StoreService } from './store.service';
 import { not } from '@angular/compiler/src/output/output_ast';
-import { Subscription } from 'rxjs';
-import { Subject } from "rxjs/Subject";
+import { Subscription ,  Subject } from 'rxjs';
 import * as moment from 'moment';
 
 declare var ga: Function;
