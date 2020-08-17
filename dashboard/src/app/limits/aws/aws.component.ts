@@ -29,7 +29,7 @@ export class AwsLimitsComponent implements OnInit,OnDestroy {
   }
 
   private initState(){
-    this.awsService.getServiceLimits().subscribe(data => {
+    this.awsService.getServiceLimits().subscribe((data: any) => {
       this.serviceLimits = data;
       this.loadingServiceLimits = false;
     }, err => {

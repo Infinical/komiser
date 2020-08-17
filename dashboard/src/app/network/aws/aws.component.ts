@@ -126,7 +126,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
   }
 
   private initState() {
-    this.awsService.getVirtualPrivateClouds().subscribe(data => {
+    this.awsService.getVirtualPrivateClouds().subscribe((data: any) => {
       this.vpcNumber = data;
       this.loadingVPCNumbers = false;
     }, err => {
@@ -134,7 +134,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingVPCNumbers = false;
     });
 
-    this.awsService.getAccessControlLists().subscribe(data => {
+    this.awsService.getAccessControlLists().subscribe((data: any) => {
       this.aclNumber = data;
       this.loadingACLNumbers = false;
     }, err => {
@@ -142,7 +142,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingACLNumbers = false;
     });
 
-    this.awsService.getRouteTables().subscribe(data => {
+    this.awsService.getRouteTables().subscribe((data: any) => {
       this.routeTablesNumber = data;
       this.loadingRouteTablesNumber = false;
     }, err => {
@@ -150,7 +150,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingRouteTablesNumber = false;
     });
 
-    this.awsService.getCloudFrontDistributions().subscribe(data => {
+    this.awsService.getCloudFrontDistributions().subscribe((data: any) => {
       this.cloudfrontDistributions = data;
       this.loadingCDNNumbers = false;
     }, err => {
@@ -158,7 +158,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingCDNNumbers = false;
     })
 
-    this.awsService.getCloudFrontRequests().subscribe(data => {
+    this.awsService.getCloudFrontRequests().subscribe((data: any) => {
       let datasets = [];
       let total = 0;
 
@@ -219,7 +219,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingCDNRequests = false;
     })
 
-    this.awsService.getApiGatewayRequests().subscribe(data => {
+    this.awsService.getApiGatewayRequests().subscribe((data: any) => {
       let datasets = [];
       let total = 0;
 
@@ -279,7 +279,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingApigatewayRequestsChart = false;
     });
 
-    this.awsService.getApiGatewayRestAPIs().subscribe(data => {
+    this.awsService.getApiGatewayRestAPIs().subscribe((data: any) => {
       this.apigatewayApis = data;
       this.loadingAPIGateways = false;
     }, err => {
@@ -287,7 +287,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingAPIGateways = false;
     });
 
-    this.awsService.getELBRequests().subscribe(data => {
+    this.awsService.getELBRequests().subscribe((data: any) => {
       let datasets = [];
       let total = 0;
 
@@ -348,7 +348,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
     });
 
 
-    this.awsService.getELBFamily().subscribe(data => {
+    this.awsService.getELBFamily().subscribe((data: any) => {
       let labels = [];
       let dataset = [];
       let total = 0;
@@ -369,7 +369,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       console.log(err);
     });
 
-    this.awsService.getRoute53Records().subscribe(data => {
+    this.awsService.getRoute53Records().subscribe((data: any) => {
       this.route53Records = data;
       this.loadingRoute53ARecords = false;
     }, err => {
@@ -377,7 +377,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingRoute53ARecords = false;
     });
 
-    this.awsService.getRoute53Zones().subscribe(data => {
+    this.awsService.getRoute53Zones().subscribe((data: any) => {
       this.route53Zones = data;
       this.loadingRoute53Zones = false;
     }, err => {
@@ -385,7 +385,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingRoute53Zones = false;
     });
 
-    this.awsService.getNatGatewayTraffic().subscribe(data => {
+    this.awsService.getNatGatewayTraffic().subscribe((data: any) => {
       this.natGatewayTraffic = data;
 
       Object.keys(data).forEach(region => {
@@ -402,7 +402,7 @@ export class AwsNetworkComponent implements OnInit, OnDestroy {
       this.loadingNatGatewayTrafficChart = false;
     });
 
-    this.awsService.getVPCSubnets().subscribe(data => {
+    this.awsService.getVPCSubnets().subscribe((data: any) => {
       this.subnetNumbers = data;
       this.loadingSubnetNumbers = false;
     }, err => {

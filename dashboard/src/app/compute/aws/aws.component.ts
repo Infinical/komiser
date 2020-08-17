@@ -118,7 +118,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
   private initState(){
     this.lambdaFunctions = {}
 
-    this.awsService.getDetachedElasticIps().subscribe(data => {
+    this.awsService.getDetachedElasticIps().subscribe((data: any) => {
       this.detchedElasticIps = data;
       this.loadingDetachedIps = false;
     }, err => {
@@ -126,7 +126,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.detchedElasticIps = 0;
     });
 
-    this.awsService.getInstancesPerRegion().subscribe(data => {
+    this.awsService.getInstancesPerRegion().subscribe((data: any)=> {
       this.runningEC2Instances = data.state.running ? data.state.running : 0;
       this.stoppedEC2Instances = data.state.stopped ? data.state.stopped : 0;
       this.terminatedEC2Instances = data.state.terminated ? data.state.terminated : 0;
@@ -160,7 +160,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.terminatedEC2Instances = 0;
     });
 
-    this.awsService.getLambdaFunctions().subscribe(data => {
+    this.awsService.getLambdaFunctions().subscribe((data: any) => {
       this.lambdaFunctions.golang = data.golang ? data.golang : 0;
       this.lambdaFunctions.ruby = data.ruby ? data.ruby : 0;
       this.lambdaFunctions.java = data.java ? data.java : 0;
@@ -182,7 +182,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingLambdaFunctions = false;
     });
 
-    this.awsService.getLambdaInvocationMetrics().subscribe(data => {
+    this.awsService.getLambdaInvocationMetrics().subscribe((data: any) => {
       let labels = [];
       data.forEach(period => {
         labels.push(new Date(period.timestamp).toLocaleString('en-us', { month: 'long' }))
@@ -212,7 +212,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingLambdaInvocationsChart = false;
     });
 
-    this.awsService.getECS().subscribe(data => {
+    this.awsService.getECS().subscribe((data: any) => {
       this.ecsServices = data.services;
       this.ecsClusters = data.clusters;
       this.ecsTasks = data.tasks;
@@ -228,7 +228,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingEcsTasks = false;
     });
 
-    this.awsService.getLambdaErrors().subscribe(data => {
+    this.awsService.getLambdaErrors().subscribe((data: any) => {
       let labels = [];
       data.forEach(period => {
         labels.push(new Date(period.timestamp).toISOString().split('T')[0])
@@ -258,7 +258,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingLambdaErrorsChart = false;
     });
 
-    this.awsService.getReservedInstances().subscribe(data => {
+    this.awsService.getReservedInstances().subscribe((data: any)=> {
       this.reservedInstances = data;
       this.loadingReservedInstances = false;
     }, err => {
@@ -266,7 +266,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingReservedInstances = false;
     });
 
-    this.awsService.getScheduledInstances().subscribe(data => {
+    this.awsService.getScheduledInstances().subscribe((data: any) => {
       this.scheduledInstances = data;
       this.loadingScheduledInstances = false;
     }, err => {
@@ -274,7 +274,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingScheduledInstances = false;
     });
 
-    this.awsService.getSpotInstances().subscribe(data => {
+    this.awsService.getSpotInstances().subscribe((data: any) => {
       this.spotInstances = data;
       this.loadingSpotInstances= false;
     }, err => {
@@ -282,7 +282,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingSpotInstances= false;
     });
 
-    this.awsService.getEKSClusters().subscribe(data => {
+    this.awsService.getEKSClusters().subscribe((data: any) => {
       this.eksClusters = data;
       this.loadingEksClusters = false;
     }, err => {
@@ -290,7 +290,7 @@ export class AwsComputeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingEksClusters = false;
     });
 
-    this.awsService.getCostPerInstanceType().subscribe(data => {
+    this.awsService.getCostPerInstanceType().subscribe((data: any) => {
       let periods = [];
       let series = []
       data.history.forEach(period => {

@@ -11,7 +11,7 @@ export class GcpLimitsComponent implements OnInit {
   public loadingServiceLimits: boolean = true;
 
   constructor(private gcpService: GcpService) {
-    this.gcpService.getQuotas().subscribe(data => {
+    this.gcpService.getQuotas().subscribe((data: any) => {
       this.limits = data;
       this.loadingServiceLimits = false;
     }, err => {

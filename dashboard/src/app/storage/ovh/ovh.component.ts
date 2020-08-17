@@ -33,7 +33,7 @@ export class OvhStorageComponent implements OnInit {
   public loadingSnapshots: boolean = true;
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getStorageContainers().subscribe(data => {
+    this.ovhService.getStorageContainers().subscribe((data: any) => {
       let totalObjects = 0;
       let totalSize = 0;
       data.forEach(container => {
@@ -60,7 +60,7 @@ export class OvhStorageComponent implements OnInit {
       this.loadingStorageContainerTotalSize = false;
     });
 
-    this.ovhService.getCloudVolumes().subscribe(data => {
+    this.ovhService.getCloudVolumes().subscribe((data: any) => {
       this.totalVolumes = data.length;
 
       let labels = ['classic', 'high-speed']
@@ -94,7 +94,7 @@ export class OvhStorageComponent implements OnInit {
       this.loadingVolumesTypeChart = false;
     });
 
-    this.ovhService.getCloudSnapshots().subscribe(data => {
+    this.ovhService.getCloudSnapshots().subscribe((data: any) => {
       let totalSize = 0;
       data.forEach(snapshot => {
         totalSize += snapshot.size;

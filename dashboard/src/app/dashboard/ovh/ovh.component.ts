@@ -43,7 +43,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
   ])
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getCloudProjects().subscribe(data => {
+    this.ovhService.getCloudProjects().subscribe((data: any) => {
       this.projects = data.length;
       this.loadingProjects = false;
     }, err => {
@@ -51,7 +51,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
       this.loadingProjects = false;
     });
 
-    this.ovhService.getUsers().subscribe(data => {
+    this.ovhService.getUsers().subscribe((data: any) => {
       this.loadingUsers = false;
       this.users = data;
     }, err => {
@@ -59,7 +59,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
       this.loadingUsers = false;
     });
 
-    this.ovhService.getCloudAlerts().subscribe(data => {
+    this.ovhService.getCloudAlerts().subscribe((data: any) => {
       this.alerts = data;
       this.loadingAlerts = false;
     }, err => {
@@ -67,7 +67,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
       this.loadingAlerts = false;
     });
 
-    this.ovhService.getCurrentBill().subscribe(data => {
+    this.ovhService.getCurrentBill().subscribe((data: any) => {
       this.currentBill = data.total;
       data.services.forEach(service => {
         this.mostUsedServices.push({
@@ -79,7 +79,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
       this.currentBill = 0;
     });
 
-    this.ovhService.getCloudInstances().subscribe(data => {
+    this.ovhService.getCloudInstances().subscribe((data: any)=> {
       let plots = {}
       let _usedRegions = new Map<string, number>();
 
@@ -133,7 +133,7 @@ export class OvhDashboardComponent implements OnInit, AfterViewInit {
       this.showInstancesPerRegion(plots);
     });
 
-    this.ovhService.getTickets().subscribe(data => {
+    this.ovhService.getTickets().subscribe((data: any) => {
       this.openTickets = data.open;
       this.resolvedTickets = data.close;
       this.loadingOpenTickets = false;

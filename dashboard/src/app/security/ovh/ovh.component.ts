@@ -17,7 +17,7 @@ export class OvhSecurityComponent implements OnInit {
   public loadingSSLGateways: boolean = true;
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getSSHKeys().subscribe(data => {
+    this.ovhService.getSSHKeys().subscribe((data: any) => {
       this.sshKeys = data;
       this.loadingSSHKeys = false;
     }, err => {
@@ -25,7 +25,7 @@ export class OvhSecurityComponent implements OnInit {
       this.loadingSSHKeys = false;
     });
 
-    this.ovhService.getSSLCertificates().subscribe(data => {
+    this.ovhService.getSSLCertificates().subscribe((data: any)=> {
       this.sslCertificates = data;
       this.loadingSSLCertificates = false;
     }, err => {
@@ -33,7 +33,7 @@ export class OvhSecurityComponent implements OnInit {
       this.loadingSSLCertificates = false;
     });
 
-    this.ovhService.getSSLGateways().subscribe(data => {
+    this.ovhService.getSSLGateways().subscribe((data: any)=> {
       this.sslGateways = data;
       this.loadingSSLGateways = false;
     }, err => {

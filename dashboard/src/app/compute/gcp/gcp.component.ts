@@ -62,7 +62,7 @@ export class GcpComputeComponent implements OnInit, AfterViewInit {
       node: 0
     };
 
-    this.gcpService.getComputeInstances().subscribe(data => {
+    this.gcpService.getComputeInstances().subscribe((data: any) => {
       this.loadingRunningInstances = false;
       this.loadingStoppedInstances = false;
       this.loadingInstancesPrivacyChart = false;
@@ -125,7 +125,7 @@ export class GcpComputeComponent implements OnInit, AfterViewInit {
       };
     });
 
-    this.gcpService.getKubernetesClusters().subscribe(data => {
+    this.gcpService.getKubernetesClusters().subscribe((data: any) => {
       this.loadingKubernetesClusters = false;
       this.loadingKubernetesNodes = false;
 
@@ -178,7 +178,7 @@ export class GcpComputeComponent implements OnInit, AfterViewInit {
       this.loadingKubernetesNodes = false;
     });
 
-    this.gcpService.getComputeImages().subscribe(data => {
+    this.gcpService.getComputeImages().subscribe((data: any) => {
       this.images = data.length;
       this.loadingImages = false;
     }, err => {
@@ -186,7 +186,7 @@ export class GcpComputeComponent implements OnInit, AfterViewInit {
       this.loadingImages = false;
     });
 
-    this.gcpService.getComputeCPUUtilization().subscribe(data => {
+    this.gcpService.getComputeCPUUtilization().subscribe((data: any) => {
       data.forEach(metric => {
         let series = []
         metric.points.forEach(point => {
@@ -208,7 +208,7 @@ export class GcpComputeComponent implements OnInit, AfterViewInit {
       this.returnedInstancesWithCPUUtilization = [];
     });
 
-    this.gcpService.getAppEngineBandwidth().subscribe(data => {
+    this.gcpService.getAppEngineBandwidth().subscribe((data: any) => {
       let availablePeriods = []
       data.forEach(resource => {
         resource.points.forEach(point => {

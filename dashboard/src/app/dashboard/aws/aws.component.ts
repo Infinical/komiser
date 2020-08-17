@@ -142,7 +142,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   private initState() {
     this.mostUsedServices = []
 
-    this.AwsService.getIAMUsers().subscribe(data => {
+    this.AwsService.getIAMUsers().subscribe((data: any) => {
       this.iamUsers = data;
       this.loadingIamUsers = false;
     }, err => {
@@ -150,7 +150,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingIamUsers = false;
     });
 
-    this.AwsService.getCurrentCost().subscribe(data => {
+    this.AwsService.getCurrentCost().subscribe((data: any) => {
       this.currentBill = data.toFixed(2);
       this.loadingCurrentBill = false;
     }, err => {
@@ -158,7 +158,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingCurrentBill = false;
     });
 
-    this.AwsService.getCostAndUsage().subscribe(data => {
+    this.AwsService.getCostAndUsage().subscribe((data: any) => {
       data[data.length - 1].groups.slice(0, 4).forEach(service => {
         this.mostUsedServices.push({
           name: service.key,
@@ -190,7 +190,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(err)
     });
 
-    this.AwsService.getInstancesPerRegion().subscribe(data => {
+    this.AwsService.getInstancesPerRegion().subscribe((data: any) => {
       let plots = {}
       Object.keys(data.region).forEach(key => {
         let params = this.regions[key.split("-").join("_")];
@@ -206,7 +206,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       console.log(err);
     });
 
-    this.AwsService.getUsedRegions().subscribe(data => {
+    this.AwsService.getUsedRegions().subscribe((data: any)=> {
       this.usedRegions = data.length;
       this.loadingUsedRegions = false;
     }, err => {
@@ -214,7 +214,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingUsedRegions = false;
     });
 
-    this.AwsService.getCloudwatchAlarms().subscribe(data => {
+    this.AwsService.getCloudwatchAlarms().subscribe((data: any) => {
       this.redAlarms = data.ALARM;
       this.loadingRedAlarms = false;
     }, err => {
@@ -222,7 +222,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingRedAlarms = false;
     });
 
-    this.AwsService.getOpenSupportTickets().subscribe(data => {
+    this.AwsService.getOpenSupportTickets().subscribe((data: any) => {
       this.openTickets = data.length;
       this.loadingOpenTickets = false;
     }, err => {
@@ -230,7 +230,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingOpenTickets = false;
     });
 
-    this.AwsService.getSupportTicketsHistory().subscribe(data => {
+    this.AwsService.getSupportTicketsHistory().subscribe((data: any) => {
       data.forEach(ticket => {
         if (ticket.status == "resolved") {
           this.resolvedTickets++;
@@ -242,7 +242,7 @@ export class AwsDashboardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingResolvedTickets = false;
     });
 
-    this.AwsService.getForecastPrice().subscribe(data => {
+    this.AwsService.getForecastPrice().subscribe((data: any) => {
       this.forecastBill = this.formatNumber(data).toString();
       this.loadingForecastBill = false;
     }, err => {

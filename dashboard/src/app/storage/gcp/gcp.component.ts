@@ -43,7 +43,7 @@ export class GcpStorageComponent implements OnInit {
   public loadingRedisInstances: boolean = true;
 
   constructor(private gcpService: GcpService) {
-    this.gcpService.getStorageBuckets().subscribe(data => {
+    this.gcpService.getStorageBuckets().subscribe((data: any) => {
       this.storageBuckets = data;
       this.loadingStorageBuckets = false;
     }, err => {
@@ -51,7 +51,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingStorageBuckets = false;
     });
 
-    this.gcpService.getComputeDisks().subscribe(data => {
+    this.gcpService.getComputeDisks().subscribe((data: any) => {
       let total = 0;
       this.disksTotal = 0;
       data.forEach(disk => {
@@ -68,7 +68,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingDisksTotalSize= false;
     });
 
-    this.gcpService.getSqlInstances().subscribe(data => {
+    this.gcpService.getSqlInstances().subscribe((data: any) => {
       this.mysqlInstances = 0;
       this.postgresInstances = 0;
       this.loadingMySQLInstances = false;
@@ -89,7 +89,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingPostgresInstances = false;
     });
 
-    this.gcpService.getDiskSnapshots().subscribe(data => {
+    this.gcpService.getDiskSnapshots().subscribe((data: any) => {
       this.loadingTotalSnapshots = false;
       this.loadingSnapshotsSize = false;
       this.totalSnapshots = data.length;
@@ -105,7 +105,7 @@ export class GcpStorageComponent implements OnInit {
       this.totalSnapshots = 0;
     });
 
-    this.gcpService.getBucketsSize().subscribe(data => {
+    this.gcpService.getBucketsSize().subscribe((data: any) => {
       let points = data[0].points;
       let labels = [];
       let series = [];
@@ -130,7 +130,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingStorageBucketsSizeChart = false;
     });
 
-    this.gcpService.getBucketsObjects().subscribe(data => {
+    this.gcpService.getBucketsObjects().subscribe((data: any) => {
       let points = data[0].points;
       let labels = [];
       let series = [];
@@ -155,7 +155,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingStorageBucketsObjectsChart = false;
     });
 
-    this.gcpService.getIngestedLoggingBytes().subscribe(data => {
+    this.gcpService.getIngestedLoggingBytes().subscribe((data: any) => {
       let availablePeriods = []
       data.forEach(resource => {
         resource.points.forEach(point => {
@@ -204,7 +204,7 @@ export class GcpStorageComponent implements OnInit {
       this.loadingLogsVolumeChart = false;
     });
 
-    this.gcpService.getComputeImages().subscribe(data => {
+    this.gcpService.getComputeImages().subscribe((data: any) => {
       let total = 0;
       data.forEach(image => {
         total += image.size;
@@ -216,7 +216,7 @@ export class GcpStorageComponent implements OnInit {
       this.imagesSize = '0 KB';
     });
 
-    this.gcpService.getRedisInstances().subscribe(data => {
+    this.gcpService.getRedisInstances().subscribe((data: any) => {
       this.redisInstances = data;
       this.loadingRedisInstances = false;
     }, err => {

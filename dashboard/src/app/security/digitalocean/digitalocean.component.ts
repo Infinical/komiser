@@ -54,7 +54,7 @@ export class DigitaloceanSecurityComponent implements OnInit, OnDestroy {
     this.loadingLetsEncryptCertificates = true;
     this.loadingSSHKeys = true;
 
-    this.digitaloceanService.getSshKeys().subscribe(data => {
+    this.digitaloceanService.getSshKeys().subscribe((data: any)  => {
       this.sshKeys = data;
       this.loadingSSHKeys = false;
     }, err => {
@@ -62,7 +62,7 @@ export class DigitaloceanSecurityComponent implements OnInit, OnDestroy {
       this.loadingSSHKeys = false;
     });
 
-    this.digitaloceanService.getListOfFirewalls().subscribe(data => {
+    this.digitaloceanService.getListOfFirewalls().subscribe((data: any) => {
       this.firewalls = data;
       this.loadingFirewalls = false;
     }, err => {
@@ -70,7 +70,7 @@ export class DigitaloceanSecurityComponent implements OnInit, OnDestroy {
       this.loadingFirewalls = false;
     });
 
-    this.digitaloceanService.getCertificates().subscribe(data => {
+    this.digitaloceanService.getCertificates().subscribe((data: any)=> {
       this.letsEncryptCertificates = data.letsEncrypt;
       this.customCertificates = data.custom;
       this.loadingCustomCertificates = false;
@@ -82,7 +82,7 @@ export class DigitaloceanSecurityComponent implements OnInit, OnDestroy {
       this.loadingLetsEncryptCertificates = false;
     });
 
-    this.digitaloceanService.getUnsecureFirewalls().subscribe(data => {
+    this.digitaloceanService.getUnsecureFirewalls().subscribe((data: any) => {
       this.unrestrictedFirewalls = data;
       this.returnedUnrestrictedFirewalls = this.unrestrictedFirewalls.slice(0, 20);
     }, err => {
@@ -90,7 +90,7 @@ export class DigitaloceanSecurityComponent implements OnInit, OnDestroy {
       this.returnedUnrestrictedFirewalls = [];
     });
 
-    this.digitaloceanService.getActionsHistory().subscribe(data => {
+    this.digitaloceanService.getActionsHistory().subscribe((data: any) => {
       this.actions = data;
       this.returnedActions = this.actions.slice(0, 20);
     }, err => {

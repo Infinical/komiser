@@ -36,7 +36,7 @@ export class GcpNetworkComponent implements OnInit {
   public loadingNatGateways: boolean = true;
   
   constructor(private gcpService: GcpService) {
-    this.gcpService.getDNSZones().subscribe(data => {
+    this.gcpService.getDNSZones().subscribe((data: any) => {
       this.dnsZones = data;
       this.loadingDnsZones = false;
     }, err => {
@@ -44,7 +44,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingDnsZones = false;
     });
 
-    this.gcpService.getVpcNetworks().subscribe(data => {
+    this.gcpService.getVpcNetworks().subscribe((data: any) => {
       this.networks = data;
       this.loadingNetworks = false;
     }, err => {
@@ -52,7 +52,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingNetworks = false;
     });
 
-    this.gcpService.getVpcRouters().subscribe(data => {
+    this.gcpService.getVpcRouters().subscribe((data: any)=> {
       this.routers = data;
       this.loadingRouters = false;
     }, err => {
@@ -60,7 +60,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingRouters = false;
     });
 
-    this.gcpService.getLBRequests().subscribe(data => {
+    this.gcpService.getLBRequests().subscribe((data: any) => {
       let availablePeriods = []
       data.forEach(resource => {
         resource.points.forEach(point => {
@@ -111,7 +111,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingLBRequestsChart = false;
     });
 
-    this.gcpService.getAPIRequests().subscribe(data => {
+    this.gcpService.getAPIRequests().subscribe((data: any) => {
       let availablePeriods = []
       data.forEach(resource => {
         resource.points.forEach(point => {
@@ -162,7 +162,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingConsumedRequestsChart = false;
     });
 
-    this.gcpService.getTotalLoadBalancers().subscribe(data => {
+    this.gcpService.getTotalLoadBalancers().subscribe((data: any) => {
       this.loadBalancers = data;
       this.loadingLoadBalancers = false;
     }, err => {
@@ -170,7 +170,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingLoadBalancers = false;
     });
 
-    this.gcpService.getVPCSubnets().subscribe(data => {
+    this.gcpService.getVPCSubnets().subscribe((data: any) => {
       this.subnets = data;
       this.loadingSubnets = false;
     }, err => {
@@ -178,7 +178,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingSubnets = false;
     });
 
-    this.gcpService.getVPCAddresses().subscribe(data => {
+    this.gcpService.getVPCAddresses().subscribe((data: any) => {
       this.externalAddresses = data;
       this.loadingExternalAddresses = false;
     }, err => {
@@ -186,7 +186,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingExternalAddresses = false;
     });
 
-    this.gcpService.getDnsARecords().subscribe(data => {
+    this.gcpService.getDnsARecords().subscribe((data: any) => {
       this.aRecords = data;
       this.loadingARecords = false;
     }, err => {
@@ -194,7 +194,7 @@ export class GcpNetworkComponent implements OnInit {
       this.loadingARecords = false;
     });
 
-    this.gcpService.getNatGateways().subscribe(data => {
+    this.gcpService.getNatGateways().subscribe((data: any) => {
       this.natGateways = data;
       this.loadingNatGateways = false;
     }, err => {

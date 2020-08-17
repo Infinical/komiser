@@ -32,7 +32,7 @@ export class OvhComputeComponent implements OnInit {
   public loadingKubernetesNodes: boolean = true;
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getCloudInstances().subscribe(data => {
+    this.ovhService.getCloudInstances().subscribe((data: any) => {
       let machineTypes = new Map<string, number>();
 
       let privateInstances = 0;
@@ -84,7 +84,7 @@ export class OvhComputeComponent implements OnInit {
       this.loadingStoppedInstances = false;
     });
 
-    this.ovhService.getCloudImages().subscribe(data => {
+    this.ovhService.getCloudImages().subscribe((data: any)=> {
       this.linuxImages = data.linux;
       this.windowsImages = data.windows;
       this.loadingLinuxImages = false;
@@ -96,7 +96,7 @@ export class OvhComputeComponent implements OnInit {
       this.loadingWindowsImages = false;
     });
 
-    this.ovhService.getKubeClusters().subscribe(data => {
+    this.ovhService.getKubeClusters().subscribe((data: any) => {
       this.kubernetesClusters = data;
       this.loadingKubernetesClusters = false;
     }, err => {
@@ -104,7 +104,7 @@ export class OvhComputeComponent implements OnInit {
       this.loadingKubernetesClusters = false;
     });
 
-    this.ovhService.getKubeNodes().subscribe(data => {
+    this.ovhService.getKubeNodes().subscribe((data: any) => {
       this.kubernetesNodes = data;
       this.loadingKubernetesNodes = false;
     }, err => {

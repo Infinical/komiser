@@ -55,7 +55,7 @@ export class GcpDashboardComponent implements OnInit, AfterViewInit {
   ])
 
   constructor(private gcpService: GcpService) {
-    this.gcpService.getProjects().subscribe(data => {
+    this.gcpService.getProjects().subscribe((data: any) => {
       this.project = data.length > 0 ? data[0].id : this.project;
       this.loadingProject = false;
     }, err => {
@@ -65,7 +65,7 @@ export class GcpDashboardComponent implements OnInit, AfterViewInit {
 
     let scope = this;
 
-    this.gcpService.getComputeInstances().subscribe(data => {
+    this.gcpService.getComputeInstances().subscribe((data: any) => {
       let _usedRegions = new Map<string, number>();
       let plots = {};
       
@@ -108,7 +108,7 @@ export class GcpDashboardComponent implements OnInit, AfterViewInit {
       this.usedRegions = 0;
     });
 
-    this.gcpService.getIAMUsers().subscribe(data => {
+    this.gcpService.getIAMUsers().subscribe((data: any) => {
       this.loadingIamUsers = false;
       this.iamUsers = data;
     }, err => {
@@ -116,7 +116,7 @@ export class GcpDashboardComponent implements OnInit, AfterViewInit {
       this.iamUsers = 0;
     });
 
-    this.gcpService.getBillingPerService().subscribe(data => {
+    this.gcpService.getBillingPerService().subscribe((data: any) => {
       data[data.length - 1].groups.slice(0, 4).forEach(service => {
         this.mostUsedServices.push({
           name: service.service,
@@ -155,7 +155,7 @@ export class GcpDashboardComponent implements OnInit, AfterViewInit {
       this.loadingCostHistoryChart = false;
     });
 
-    this.gcpService.getBillingLastSixMonths().subscribe(data => {
+    this.gcpService.getBillingLastSixMonths().subscribe((data: any) => {
       this.currentBill = data[data.length - 1].cost;
       this.loadingCurrentBill = false;
     }, err => {

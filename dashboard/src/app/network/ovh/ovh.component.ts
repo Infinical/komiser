@@ -20,7 +20,7 @@ export class OvhNetworkComponent implements OnInit {
   public loadingFailoverIps: boolean = true;
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getCloudIps().subscribe(data => {
+    this.ovhService.getCloudIps().subscribe((data: any) => {
       this.cloudIps = data;
       this.loadingCloudIps = false;
     }, err => {
@@ -28,7 +28,7 @@ export class OvhNetworkComponent implements OnInit {
       this.loadingCloudIps = false;
     });
 
-    this.ovhService.getPublicNetworks().subscribe(data => {
+    this.ovhService.getPublicNetworks().subscribe((data: any) => {
       this.publicNetworks = data;
       this.loadingPublicNetworks = false;
     }, err => {
@@ -36,7 +36,7 @@ export class OvhNetworkComponent implements OnInit {
       this.loadingPublicNetworks = false;
     });
 
-    this.ovhService.getPrivateNetworks().subscribe(data => {
+    this.ovhService.getPrivateNetworks().subscribe((data: any) => {
       this.privateNetworks = data;
       this.loadingPrivateNetworks = false;
     }, err => {
@@ -44,7 +44,7 @@ export class OvhNetworkComponent implements OnInit {
       this.loadingPrivateNetworks = false;
     });
 
-    this.ovhService.getFailoverIps().subscribe(data => {
+    this.ovhService.getFailoverIps().subscribe((data: any) => {
       this.failoverIps = data;
       this.loadingFailoverIps = false;
     }, err => {
@@ -52,7 +52,7 @@ export class OvhNetworkComponent implements OnInit {
       this.loadingFailoverIps = false;
     });
 
-    this.ovhService.getVRacks().subscribe(data => {
+    this.ovhService.getVRacks().subscribe((data: any) => {
       this.vRacks = data;
       this.loadingVRacks = false;
     }, err => {

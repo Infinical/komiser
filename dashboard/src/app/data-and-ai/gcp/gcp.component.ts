@@ -34,7 +34,7 @@ export class GcpDataAndAIComponent implements OnInit {
   public loadingDataflowJobs: boolean = true;
 
   constructor(private gcpService:GcpService) {
-    this.gcpService.getPubSubTopics().subscribe(data => {
+    this.gcpService.getPubSubTopics().subscribe((data: any) => {
       this.pubSubTopics = data;
       this.loadingPubSubTopics = false;
     }, err => {
@@ -42,7 +42,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingPubSubTopics = false;
     });
 
-    this.gcpService.getBigQueryStatements().subscribe(data => {
+    this.gcpService.getBigQueryStatements().subscribe((data: any) => {
       let availablePeriods = []
       data.forEach(resource => {
         resource.points.forEach(point => {
@@ -91,7 +91,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingBigqueryStatementsChart = false;
     });
 
-    this.gcpService.getBigQueryStorage().subscribe(data => {
+    this.gcpService.getBigQueryStorage().subscribe((data: any) => {
       this.loadingBigqueryStorageChart = false;
 
       let availablePeriods = []
@@ -148,7 +148,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.bigquerySize = '0 KB';
     });
 
-    this.gcpService.getBigQueryDatasets().subscribe(data => {
+    this.gcpService.getBigQueryDatasets().subscribe((data: any) => {
       this.bigqueryDatasets = data;
       this.loadingBigQueryDatasets = false;
     }, err => {
@@ -156,7 +156,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingBigQueryDatasets = false;
     });
 
-    this.gcpService.getBigQueryTables().subscribe(data => {
+    this.gcpService.getBigQueryTables().subscribe((data: any) => {
       this.bigqueryTables = data;
       this.loadingBigQueryTables = false;
     }, err => {
@@ -164,7 +164,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingBigQueryTables = false;
     });
 
-    this.gcpService.getDataprocClusters().subscribe(data => {
+    this.gcpService.getDataprocClusters().subscribe((data: any) => {
       this.dataprocClusters = data;
       this.loadingDataprocClusters = false;
     }, err => {
@@ -172,7 +172,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingDataprocClusters = false;
     });
 
-    this.gcpService.getDataprocJobs().subscribe(data => {
+    this.gcpService.getDataprocJobs().subscribe((data: any) => {
       this.dataprocJobs = data;
       this.loadingDataprocJobs = false;
     }, err => {
@@ -180,7 +180,7 @@ export class GcpDataAndAIComponent implements OnInit {
       this.loadingDataprocJobs = false;
     });
 
-    this.gcpService.getDataflowJobs().subscribe(data => {
+    this.gcpService.getDataflowJobs().subscribe((data: any)=> {
       this.dataflowJobs = data;
       this.loadingDataflowJobs = false;
     }, err => {

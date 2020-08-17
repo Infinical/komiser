@@ -30,14 +30,14 @@ export class GcpSecurityComponent implements OnInit {
   public loadingServiceAccounts: boolean = true;
 
   constructor(private gcpService: GcpService) {
-    this.gcpService.getIamRoles().subscribe(data => {
+    this.gcpService.getIamRoles().subscribe((data: any)=> {
       this.iamRoles = data;
       this.loadingIamRoles = false;
     }, err => {
       this.loadingIamRoles = false;
     });
 
-    this.gcpService.getVPNTunnels().subscribe(data => {
+    this.gcpService.getVPNTunnels().subscribe((data: any) => {
       this.vpnTunnels = data;
       this.loadingVPNTunnels = false;
     }, err => {
@@ -45,7 +45,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingVPNTunnels = false;
     });
 
-    this.gcpService.getVpcFirewalls().subscribe(data => {
+    this.gcpService.getVpcFirewalls().subscribe((data: any) => {
       this.firewalls = data;
       this.loadingFirewalls = false;
     }, err => {
@@ -53,7 +53,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingFirewalls = false;
     });
 
-    this.gcpService.getSSLCertificates().subscribe(data => {
+    this.gcpService.getSSLCertificates().subscribe((data: any) => {
       this.sslCertificates = data;
       this.loadingSSLCertificates = false;
     }, err => {
@@ -61,7 +61,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingSSLCertificates = false;
     });
 
-    this.gcpService.getSSLPolicies().subscribe(data => {
+    this.gcpService.getSSLPolicies().subscribe((data: any) => {
       this.sslPolicies = data;
       this.loadingSSLPolicies = false;
     }, err => {
@@ -69,7 +69,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingSSLPolicies = false;
     });
 
-    this.gcpService.getSecurityPolicies().subscribe(data => {
+    this.gcpService.getSecurityPolicies().subscribe((data: any) => {
       this.securityPolicies = data;
       this.loadingSecurityPolicies = false;
     }, err => {
@@ -77,7 +77,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingSecurityPolicies = false;
     });
 
-    this.gcpService.getKMSCryptoKeys().subscribe(data => {
+    this.gcpService.getKMSCryptoKeys().subscribe((data: any) => {
       this.cryptoKeys = data;
       this.loadingCryptoKeys = false;
     }, err => {
@@ -85,7 +85,7 @@ export class GcpSecurityComponent implements OnInit {
       this.loadingCryptoKeys = false;
     });
 
-    this.gcpService.getEnabledAPIs().subscribe(data => {
+    this.gcpService.getEnabledAPIs().subscribe((data: any) => {
       this.enabledAPIs = data;
       this.returnedEnabledAPIs = this.enabledAPIs.slice(0, 10);
     }, err => {
@@ -93,7 +93,7 @@ export class GcpSecurityComponent implements OnInit {
       this.returnedEnabledAPIs = [];
     });
 
-    this.gcpService.getServiceAccounts().subscribe(data => {
+    this.gcpService.getServiceAccounts().subscribe((data: any)=> {
       this.serviceAccounts = data;
       this.loadingServiceAccounts = false;
     }, err => {

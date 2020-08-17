@@ -69,7 +69,7 @@ export class DigitaloceanNetworkComponent implements OnInit, OnDestroy {
       this.loadingDomains = false;
     });
 
-    this.digitaloceanService.getLoadBalancers().subscribe(data => {
+    this.digitaloceanService.getLoadBalancers().subscribe((data:any) => {
       this.loadBalancers = data;
       this.loadingLoadBalancers = false;
     }, err => {

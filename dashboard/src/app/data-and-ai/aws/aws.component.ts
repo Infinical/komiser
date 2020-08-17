@@ -131,7 +131,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingSQSMessages = false;
     })
 
-    this.awsService.getSQSQueues().subscribe(data => {
+    this.awsService.getSQSQueues().subscribe((data: any) => {
       this.sqsQueues = data;
       this.loadingSQS = false;
     }, err => {
@@ -139,7 +139,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingSQS = false;
     })
 
-    this.awsService.getSNSTopics().subscribe(data => {
+    this.awsService.getSNSTopics().subscribe((data: any) => {
       this.snsTopics = data;
       this.loadingSNS = false;
     }, err => {
@@ -147,7 +147,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingSNS = false;
     });
 
-    this.awsService.getActiveMQBrokers().subscribe(data => {
+    this.awsService.getActiveMQBrokers().subscribe((data: any) => {
       this.activemqBrokers = data;
       this.loadingActiveMQBrokers = false;
     }, err => {
@@ -155,7 +155,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingActiveMQBrokers = false;
     });
 
-    this.awsService.getKinesisShards().subscribe(data => {
+    this.awsService.getKinesisShards().subscribe((data: any) => {
       this.kinesisShards = data;
       this.loadingKinesisShards = false;
     }, err => {
@@ -163,7 +163,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingKinesisShards = false;
     });
 
-    this.awsService.getKinesisStreams().subscribe(data => {
+    this.awsService.getKinesisStreams().subscribe((data: any) => {
       this.kinesisStreams = data;
       this.loadingKinesisStreams = false;
     }, err => {
@@ -171,7 +171,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingKinesisStreams = false;
     });
 
-    this.awsService.getGlueCrawlers().subscribe(data => {
+    this.awsService.getGlueCrawlers().subscribe((data: any) => {
       this.glueCrawlers = data;
       this.loadingGlueCrawlers = false;
     }, err => {
@@ -179,7 +179,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingGlueCrawlers = false;
     });
 
-    this.awsService.getGlueJobs().subscribe(data => {
+    this.awsService.getGlueJobs().subscribe((data: any) => {
       this.glueJobs = data;
       this.loadingGlueJobs = false;
     }, err => {
@@ -187,7 +187,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingGlueJobs = false;
     });
 
-    this.awsService.getDataPipelines().subscribe(data => {
+    this.awsService.getDataPipelines().subscribe((data: any) => {
       this.dataPipelines = data;
       this.loadingDataPipelines = false;
     }, err => {
@@ -195,7 +195,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingDataPipelines = false;
     });
 
-    this.awsService.getESDomains().subscribe(data => {
+    this.awsService.getESDomains().subscribe((data: any)=> {
       this.esDomains = data;
       this.loadingESDomains = false;
     }, err => {
@@ -203,7 +203,7 @@ export class AwsDataAndAIComponent implements OnInit, OnDestroy {
       this.loadingESDomains = false;
     });
 
-    this.awsService.getSWFDomains().subscribe(data => {
+    this.awsService.getSWFDomains().subscribe((data: any)=> {
       this.swfDomains = data;
       this.loadingSwfDomains = false;
     }, err => {

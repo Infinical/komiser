@@ -73,7 +73,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private initState() {
-    this.awsService.getKMSKeys().subscribe(data => {
+    this.awsService.getKMSKeys().subscribe((data: any)  => {
       this.kmsKeys = data;
       this.loadingKMSKeys = false;
     }, err => {
@@ -81,7 +81,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingKMSKeys = false;
     });
 
-    this.awsService.getSecurityGroups().subscribe(data => {
+    this.awsService.getSecurityGroups().subscribe((data: any)  => {
       this.securityGroups = data;
       this.loadingSecurityGroups = false;
     }, err => {
@@ -89,7 +89,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingSecurityGroups = false;
     });
 
-    this.awsService.getKeyPairs().subscribe(data => {
+    this.awsService.getKeyPairs().subscribe((data: any)  => {
       this.keyPairs = data;
       this.loadingKeyPairs = false;
     }, err => {
@@ -97,7 +97,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingKeyPairs = false;
     });
 
-    this.awsService.getRouteTables().subscribe(data => {
+    this.awsService.getRouteTables().subscribe((data: any)  => {
       this.routeTables = data;
       this.loadingRouteTables = false;
     }, err => {
@@ -105,7 +105,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingRouteTables = false;
     });
 
-    this.awsService.getACMListCertificates().subscribe(data => {
+    this.awsService.getACMListCertificates().subscribe((data: any)  => {
       this.acmCertificates = data;
       this.loadingACMCertificates = false;
     }, err => {
@@ -113,7 +113,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingACMCertificates = false;
     });
 
-    this.awsService.getACMExpiredCertificates().subscribe(data => {
+    this.awsService.getACMExpiredCertificates().subscribe((data: any) => {
       this.acmExpiredCertificates = data;
       this.loadingACMExpiredCertificates = false;
     }, err => {
@@ -121,7 +121,7 @@ export class AwsSecurityComponent implements OnInit, AfterViewInit, OnDestroy {
       this.loadingACMExpiredCertificates = false;
     });
 
-    this.awsService.getUnrestrictedSecurityGroups().subscribe(data => {
+    this.awsService.getUnrestrictedSecurityGroups().subscribe((data: any)  => {
       this.unrestrictedSecurityGroups = data;
       this.returnedUnrestrictedSecurityGroups = this.unrestrictedSecurityGroups.slice(0, 20);
     }, err => {

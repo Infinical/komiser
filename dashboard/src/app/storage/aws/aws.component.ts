@@ -120,7 +120,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
   }
 
   private initState() {
-    this.awsService.getNumberOfS3Buckets().subscribe(data => {
+    this.awsService.getNumberOfS3Buckets().subscribe((data: any) => {
       this.s3Buckets = data ? data : 0;
       this.loadingS3Buckets = false;
     }, err => {
@@ -128,7 +128,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingS3Buckets = false;
     });
 
-    this.awsService.getEBS().subscribe(data => {
+    this.awsService.getEBS().subscribe((data: any)=> {
       let sum = 0
       let labels = []
       let series = []
@@ -224,7 +224,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingS3BucketSize = false;
     });
 
-    this.awsService.getEmptyBuckets().subscribe(data => {
+    this.awsService.getEmptyBuckets().subscribe((data: any)=> {
       this.emptyBuckets = data;
       this.loadingEmptyBuckets = false;
     }, err => {
@@ -233,7 +233,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
     });
 
 
-    this.awsService.getDynamoDBTables().subscribe(data => {
+    this.awsService.getDynamoDBTables().subscribe((data: any) => {
       this.dynamodbTables = data.total;
       this.loadingDynamoTables = false;
     }, err => {
@@ -241,7 +241,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingDynamoTables = false;
     });
 
-    this.awsService.getRDSInstances().subscribe(data => {
+    this.awsService.getRDSInstances().subscribe((data: any) => {
       this.docdbInstances = data.docdb ? data.docdb : 0;
       let total = 0;
       Object.keys(data).forEach(key => {
@@ -258,7 +258,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.rdsInstances = 0;
     });
 
-    this.awsService.getElasticacheClusters().subscribe(data => {
+    this.awsService.getElasticacheClusters().subscribe((data: any) => {
       this.redisClusters = data['redis'] ? data['redis'] : 0;
       this.memcachedClusters = data['memcached'] ? data['memcached'] : 0;
       this.loadingRedisClusters = false;
@@ -270,7 +270,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingMemCachedClusters = false;
     });
 
-    this.awsService.getLogsVolume().subscribe(data => {
+    this.awsService.getLogsVolume().subscribe((data: any) => {
       let seriesIncomingBytes = [];
       let seriesIncomingLogEvents = [];
       let labels = [];
@@ -296,7 +296,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingLogsVolumeChart = false;
     });
 
-    this.awsService.getLogsRetentionPeriod().subscribe(data => {
+    this.awsService.getLogsRetentionPeriod().subscribe((data: any) => {
       this.logsRetentionPeriod = data;
       this.loadingLogsRetentionPeriod = false;
     }, err => {
@@ -304,7 +304,7 @@ export class AwsStorageComponent implements OnInit, OnDestroy {
       this.loadingLogsRetentionPeriod = false;
     });
 
-    this.awsService.getRedshiftClusters().subscribe(data => {
+    this.awsService.getRedshiftClusters().subscribe((data: any) => {
       this.redshiftClusters = data;
       this.loadingRedshiftClusters = false;
     }, err => {

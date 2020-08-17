@@ -11,7 +11,7 @@ export class OvhLimitsComponent implements OnInit {
   public loadingServiceLimits: boolean = true;
 
   constructor(private ovhService: OvhService) {
-    this.ovhService.getLimits().subscribe(data => {
+    this.ovhService.getLimits().subscribe((data: any) => {
       this.limits = data;
       data.forEach(item => {
         item.volume.usedGigabytes = this.bytesToSizeWithUnit(item.volume.usedGigabytes*1024*1024*1024);

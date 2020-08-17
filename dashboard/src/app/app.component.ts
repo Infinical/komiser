@@ -19,7 +19,7 @@ export class AppComponent implements OnDestroy {
 
   public accountName: string = 'Username';
   public redAlarms: number;
-  public profiles: Array<string> = [];
+  public profiles:any = [];
   public currentProfile: string;
   public notifications: Array<Object> = [];
   public _subscription: Subscription;
@@ -110,32 +110,32 @@ export class AppComponent implements OnDestroy {
 
   private getAccountName() {
     if (this.currentProvider.value == 'aws') {
-      this.awsService.getAccountName().subscribe(data => {
+      this.awsService.getAccountName().subscribe((data: any) => {
         this.accountName = data.username;
       }, err => {
         this.accountName = 'Username';
       });
 
-      this.awsService.getCloudwatchAlarms().subscribe(data => {
+      this.awsService.getCloudwatchAlarms().subscribe((data: any)  => {
         this.redAlarms = data.ALARM;
       }, err => {
         this.redAlarms = 0;
       });
     } else if(this.currentProvider.value == 'ovh'){
-      this.ovhService.getCloudAlerts().subscribe(data => {
+      this.ovhService.getCloudAlerts().subscribe((data: any)  => {
         this.redAlarms = data;
       }, err => {
         this.redAlarms = 0;
       });
 
-      this.ovhService.getProfile().subscribe(data => {
+      this.ovhService.getProfile().subscribe((data: any)  => {
         this.accountName = data.nichandle;
       }, err => {
         this.accountName = 'Username';
       });
     }else if(this.currentProvider.value == 'digitalocean'){
       this.redAlarms = 0;
-      this.digitaloceanService.getProfile().subscribe(data => {
+      this.digitaloceanService.getProfile().subscribe((data: any)  => {
         this.accountName = data.email.substring(0, data.email.indexOf('@'))
       }, err => {
         this.accountName = 'Username';
